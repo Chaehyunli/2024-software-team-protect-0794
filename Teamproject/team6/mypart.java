@@ -1,5 +1,9 @@
 package software_mypart;
 
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -16,17 +20,6 @@ class Event{
     private LocalDateTime end_date;
     private String location;
     private List<Integer> participants;
-
-    public Event(int id, int club_id, String title, String description, LocalDateTime start_date, LocalDateTime end_date, String location) {
-        this.id = id;
-        this.club_id = club_id;
-        this.title = title;
-        this.description = description;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.location = location;
-        this.participants = new ArrayList<>();
-    }
 
     public boolean create(){
         return true;
@@ -67,16 +60,6 @@ class Announcement{
     private LocalDateTime update_at;
     private Stack<AnnouncementMemento> stateStack;
 
-    public Announcement(int id, int club_id, String title, String content, LocalDateTime created_at, LocalDateTime update_at, Stack<AnnouncementMemento> stateStack) {
-        this.id = id;
-        this.club_id = club_id;
-        this.title = title;
-        this.content = content;
-        this.created_at = created_at;
-        this.update_at = update_at;
-        this.stateStack = stateStack;
-    }
-
     public boolean create() {
         return true;
     }
@@ -98,11 +81,11 @@ class Announcement{
     }
 
     private AnnouncementMemento createMemento() {
-        return new AnnouncementMemento(this.stateStack.peek().getState());
+        return null;
     }
 
     private void setMemento(AnnouncementMemento m) {
-        this.stateStack.push(m);
+        //
     }
 }
 
@@ -110,12 +93,6 @@ class ApplicationStatus {
     private int club_id;
     private int member_id;
     private String status;
-
-    public ApplicationStatus(int club_id, int member_id, String status) {
-        this.club_id = club_id;
-        this.member_id = member_id;
-        this.status = status;
-    }
 
     public boolean updateStatus(String newStatus) {
         return true;
@@ -561,7 +538,7 @@ class EventService extends Service {
     }
 
     public boolean createEvent(int id, int club_id, String title, String description, LocalDateTime start_date, LocalDateTime end_date, String location) {
-        return eventRepository.save_Event(new Event(id, club_id, title, description, start_date, end_date, location));
+        return true;
     }
 
     public boolean updateEvent(int id, int club_id, String title, String description, LocalDateTime start_date, LocalDateTime end_date, String location) {
@@ -569,15 +546,15 @@ class EventService extends Service {
     }
 
     public boolean deleteEvent(int id) {
-        return eventRepository.delete_Event(id);
+        return true;
     }
 
     public boolean registerEvent(int eventId, int memberId) {
-        return eventEvent.registerEvent(eventId, memberId);
+        return true;
     }
 
     public boolean unregisterEvent(int eventId, int memberId) {
-        return eventEvent.unregisterEvent(eventId, memberId);
+        return true;
     }
 }
 
@@ -591,7 +568,7 @@ class AnnouncementService  extends Service {
     }
 
     public boolean createAnnouncement(int id, int club_id, String title, String content, LocalDateTime created_at, LocalDateTime updated_at, Stack<AnnouncementMemento> stateStack) {
-        return announcementRepository.save_Announcement(new Announcement(id, club_id, title, content, created_at, updated_at, stateStack));
+        return true;
     }
 
     public boolean updateAnnouncement(int id, String title, String content, LocalDateTime updated_at) {
@@ -599,15 +576,15 @@ class AnnouncementService  extends Service {
     }
 
     public boolean deleteAnnouncement(int id) {
-        return announcementRepository.delete_Announcement(id);
+        return true;
     }
 
     public boolean publishAnnouncement(int announcementId) {
-        return announcementEvent.publishAnnouncement(announcementId);
+        return true;
     }
 
     public boolean unpublishAnnouncement(int announcementId) {
-        return announcementEvent.unpublishAnnouncement(announcementId);
+        return true;
     }
 }
 
@@ -676,91 +653,100 @@ abstract class Controller{
     //
 }
 
-class EventController extends Controller{
+@RestController
+public class EventController extends Controller{
     private EventService eventService;
 
     public EventController(EventService eventService) {
         this.eventService = eventService;
     }
 
-    public boolean createEvent(int id, int club_id, String title, String description, LocalDateTime start_date, LocalDateTime end_date, String location) {
-        return eventService.createEvent(id, club_id, title, description, start_date, end_date, location);
+    public ResponseEntity<Event> createEvent(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 
-    public boolean updateEvent(int id, int club_id, String title, String description, LocalDateTime start_date, LocalDateTime end_date, String location) {
-        return eventService.updateEvent(id, club_id, title, description, start_date, end_date, location);
+    public ResponseEntity<Void> updateEvent(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 
-    public boolean deleteEvent(int id) {
-        return eventService.deleteEvent(id);
+    public ResponseEntity<Void> deleteEvent(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 
-    public boolean registerEvent(int eventId, int memberId) {
-        return eventService.registerEvent(eventId, memberId);
+    public ResponseEntity<Void> registerEvent(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 
-    public boolean unregisterEvent(int eventId, int memberId) {
-        return eventService.unregisterEvent(eventId, memberId);
+    public ResponseEntity<Void> unregisterEvent(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 }
 
-class ClubController extends Controller {
+@RestController
+public class ClubController extends Controller{
     private ClubService clubService;
 
     public ClubController(ClubService clubService) {
         this.clubService = clubService;
     }
 
-    public boolean createClub(Club club) {
-        return clubService.createClub(club);
+    public ResponseEntity<Club> createClub(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 
-    public boolean updateClub(Club club) {
-        return clubService.updateClub(club);
+    public ResponseEntity<Void> updateClub(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 
-    public boolean deleteClub(int clubId) {
-        return clubService.deleteClub(clubId);
-    }
-    
-    public List<Member> getMembers(int clubId) {
-        return clubService.getMembers(clubId);
+    public ResponseEntity<Void> deleteClub(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 
-    public List<Event> getEvents(int clubId) {
-        return clubService.getEvents(clubId);
+    public ResponseEntity<List<Member>> getMembers(HttpServletRequest request) {
+        int clubId = Integer.parseInt(request.getParameter("clubId"));
+        List<Member> members = clubService.getMembers(clubId);
+        return ResponseEntity.ok().body(members);
     }
 
-    public List<Announcement> getAnnouncements(int clubId) {
-        return clubService.getAnnouncements(clubId);
+    public ResponseEntity<List<Event>> getEvents(HttpServletRequest request) {
+        int clubId = Integer.parseInt(request.getParameter("clubId"));
+        List<Event> events = clubService.getEvents(clubId);
+        return ResponseEntity.ok().body(events);
+    }
+
+    public ResponseEntity<List<Announcement>> getAnnouncements(HttpServletRequest request) {
+        int clubId = Integer.parseInt(request.getParameter("clubId"));
+        List<Announcement> announcements = clubService.getAnnouncements(clubId);
+        return ResponseEntity.ok().body(announcements);
     }
 }
 
-class AnnouncementController extends Controller{
+@RestController
+public class AnnouncementController extends Controller{
     private AnnouncementService announcementService;
 
     public AnnouncementController(AnnouncementService announcementService) {
         this.announcementService = announcementService;
     }
 
-    public boolean createAnnouncement(int id, int club_id, String title, String content, LocalDateTime created_at, LocalDateTime updated_at, Stack<AnnouncementMemento> stateStack) {
-        return announcementService.createAnnouncement(id, club_id, title, content, created_at, updated_at, stateStack);
+    public ResponseEntity<Void> createAnnouncement(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 
-    public boolean updateAnnouncement(int id, String title, String content, LocalDateTime updated_at) {
-        return announcementService.updateAnnouncement(id, title, content, updated_at);
+    public ResponseEntity<Void> updateAnnouncement(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 
-    public boolean deleteAnnouncement(int id) {
-        return announcementService.deleteAnnouncement(id);
+    public ResponseEntity<Void> deleteAnnouncement(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 
-    public boolean publishAnnouncement(int announcementId) {
-        return announcementService.publishAnnouncement(announcementId);
+    public ResponseEntity<Void> publishAnnouncement(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 
-    public boolean unpublishAnnouncement(int announcementId) {
-        return announcementService.unpublishAnnouncement(announcementId);
+    public ResponseEntity<Void> unpublishAnnouncement(HttpServletRequest request) {
+        return ResponseEntity.ok().build();
     }
 }
 
