@@ -411,27 +411,36 @@ class RealClub implements Club {
     private String history;
     private String category_info;
     private String contact_info;
-
+    private List<Member> members;
+    private List<Event> events;
+    private List<Announcement> announcements;
+    
+    @Override
     public boolean create() {
         return true;
     }
-
+    
+    @Override
     public boolean update() {
         return true;
     }
-
+    
+    @Override
     public boolean delete() {
         return true;
     }
-
+    
+    @Override
     public List<Member> get_members() {
         return null;
     }
-
+    
+    @Override
     public List<Event> get_events() {
         return null;
     }
 
+    @Override
     public List<Announcement> get_announcements() {
         return null;
     }
@@ -439,27 +448,33 @@ class RealClub implements Club {
 
 class Proxy implements Club {
     private RealClub realClub;
-
+    
+    @Override
     public boolean create() {
         return true;
     }
 
+    @Override
     public boolean update() {
         return true;
     }
-
+    
+    @Override
     public boolean delete() {
         return true;
     }
-
+    
+    @Override
     public List<Member> get_members() {
         return null;
     }
-
+    
+    @Override
     public List<Event> get_events() {
         return null;
     }
-
+    
+    @Override
     public List<Announcement> get_announcements() {
         return null;
     }
