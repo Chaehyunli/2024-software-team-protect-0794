@@ -510,7 +510,7 @@ class SurveyRepository extends Repository{
 	    }
 
 	    public Survey getSurvey(int id) {
-	        return true;
+	        return null;
 	    }
 
 	    public boolean updateSurvey(Survey survey) {
