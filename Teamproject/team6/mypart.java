@@ -1,9 +1,5 @@
 package software_mypart;
 
-import javax.servlet.http.HttpServletRequest;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -660,25 +656,26 @@ class EventController extends Controller{
         this.eventService = eventService;
     }
 
-    public ResponseEntity<Event> createEvent(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void createEvent(int id, int clubId, String title, String description, LocalDateTime startDate, LocalDateTime endDate, String location) {
+        //
     }
 
-    public ResponseEntity<Void> updateEvent(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void updateEvent(int id, int clubId, String title, String description, LocalDateTime startDate, LocalDateTime endDate, String location) {
+        //
     }
 
-    public ResponseEntity<Void> deleteEvent(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void deleteEvent(int id) {
+        //
     }
 
-    public ResponseEntity<Void> registerEvent(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void registerEvent(int eventId, int memberId) {
+        //
     }
 
-    public ResponseEntity<Void> unregisterEvent(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void unregisterEvent(int eventId, int memberId) {
+        //
     }
+}
 }
 
 class ClubController extends Controller{
@@ -688,34 +685,32 @@ class ClubController extends Controller{
         this.clubService = clubService;
     }
 
-    public ResponseEntity<Club> createClub(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void createClub(String name, String description, String history, String categoryInfo, String contactInfo) {
+        //
     }
 
-    public ResponseEntity<Void> updateClub(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void updateClub(int id) {
+        //
     }
 
-    public ResponseEntity<Void> deleteClub(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void deleteClub(int id) {
+        //
     }
 
-    public ResponseEntity<List<Member>> getMembers(HttpServletRequest request) {
-        int clubId = Integer.parseInt(request.getParameter("clubId"));
-        List<Member> members = clubService.getMembers(clubId);
-        return ResponseEntity.ok().body(members);
+    public void removeMemberFromClub(int clubId, int memberId) {
+        //
     }
 
-    public ResponseEntity<List<Event>> getEvents(HttpServletRequest request) {
-        int clubId = Integer.parseInt(request.getParameter("clubId"));
-        List<Event> events = clubService.getEvents(clubId);
-        return ResponseEntity.ok().body(events);
+    public void addClubAnnouncement(int clubId, int announcementId, String title, String content) {
+        //
     }
 
-    public ResponseEntity<List<Announcement>> getAnnouncements(HttpServletRequest request) {
-        int clubId = Integer.parseInt(request.getParameter("clubId"));
-        List<Announcement> announcements = clubService.getAnnouncements(clubId);
-        return ResponseEntity.ok().body(announcements);
+    public void updateClubAnnouncement(int clubId, int announcementId, String title, String content) {
+        //
+    }
+
+    public void removeClubAnnouncement(int clubId, int announcementId) {
+        //
     }
 }
 
@@ -726,25 +721,25 @@ class AnnouncementController extends Controller{
         this.announcementService = announcementService;
     }
 
-    public ResponseEntity<Void> createAnnouncement(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void createAnnouncement(int id, int clubId, String title, String content, LocalDateTime createdAt, LocalDateTime updatedAt, Stack<AnnouncementMemento> stateStack) {
+        //
     }
 
-    public ResponseEntity<Void> updateAnnouncement(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void updateAnnouncement(int id, String title, String content, LocalDateTime updatedAt) {
+        //
     }
 
-    public ResponseEntity<Void> deleteAnnouncement(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void deleteAnnouncement(int id) {
+        //
     }
 
-    public ResponseEntity<Void> publishAnnouncement(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
+    public void publishAnnouncement(int announcementId) {
+        //
     }
 
-    public ResponseEntity<Void> unpublishAnnouncement(HttpServletRequest request) {
-        return ResponseEntity.ok().build();
-    }
+    public void unpublishAnnouncement(int announcementId) {
+        //
+    }   
 }
 
 class ChatController extends Controller{
