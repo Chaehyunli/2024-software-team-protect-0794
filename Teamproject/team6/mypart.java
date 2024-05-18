@@ -203,6 +203,12 @@ class BoardPost {
 }
 
 class Comment {
+    
+    private int id;
+    private int post_id;
+    private int author_id;
+    private String content;
+    private LocalDateTime created_at;
 
 }
 
