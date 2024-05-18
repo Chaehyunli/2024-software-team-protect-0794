@@ -653,7 +653,6 @@ abstract class Controller{
     //
 }
 
-@RestController
 public class EventController extends Controller{
     private EventService eventService;
 
@@ -682,7 +681,6 @@ public class EventController extends Controller{
     }
 }
 
-@RestController
 public class ClubController extends Controller{
     private ClubService clubService;
 
@@ -721,7 +719,6 @@ public class ClubController extends Controller{
     }
 }
 
-@RestController
 public class AnnouncementController extends Controller{
     private AnnouncementService announcementService;
 
