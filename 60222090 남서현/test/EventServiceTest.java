@@ -1,3 +1,5 @@
+// 생성형 AI 모델의 답변을 참고했습니다.
+
 package com.example.demo;
 
 import org.junit.jupiter.api.BeforeEach;
