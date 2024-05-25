@@ -104,8 +104,70 @@ EventService
   - updateEventLocation
   - extendEvent
 - testcase
-  1. id : 1, club_id : 100, title : XX동아리, description : 설명~~~, start_date : now, end_date : now+days2, location :
+  1. id : 1, club_id : 100, title : XX동아리, description : 설명~~~, startDate : 2024-05-20 10:00, endDate : 2024-05-22 10:00, location :
 명지대 자연캠퍼스 5공학관 4층 Y5411
+    - postponeEvent_Successful : PASS
+      <br> newStartDate : startDate+days2, newEndDate : endDate+days2
+    - updateEventTitle_Successful : PASS
+      <br> newTitle : 새로운 제목
+    - updateEventDescription_Successful : PASS
+      <br> newDescription : 새로운 설명
+    - updateEventLocation_Successful : PASS
+      <br> newLocation : 새로운 위치
+    - extendEvent_Successful : PASS
+      <br> newEndDate : endDate+days5
+  
+  2. id : 3, club_id : 200, title : XO동아리, description : 설명~~~, startDate : 2024-05-22 10:00, endDate : 2024-05-24 10:00, location :
+명지대 자연캠퍼스 5공학관 4층 Y5411
+    - postponeEvent_Successful : PASS
+      <br> newStartDate : startDate+days4, newEndDate : endDate+days5
+    - updateEventTitle_Successful : PASS
+      <br> newTitle : 새로운 제목
+    - updateEventDescription_Successful : PASS
+      <br> newDescription : 새로운 설명
+    - updateEventLocation_Successful : PASS
+      <br> newLocation : 새로운 위치
+    - extendEvent_Successful : PASS
+      <br> newEndDate : endDate+days1
+
+  3. id : 2, club_id : 300, title : WW동아리, description : 설명~~~, startDate : 2024-12-20 08:00, endDate : 2024-12-22 10:00, location :
+명지대 자연캠퍼스 5공학관 4층 Y5411
+    - postponeEvent_Successful : PASS
+      <br> newStartDate : startDate+days4, newEndDate : endDate+days4
+    - updateEventTitle_Successful : PASS
+      <br> newTitle : 새로운 제목
+    - updateEventDescription_Successful : PASS
+      <br> newDescription : 새로운 설명
+    - updateEventLocation_Successful : PASS
+      <br> newLocation : 새로운 위치
+    - extendEvent_Successful : PASS
+      <br> newEndDate : endDate+days5
+
+  4. id : 1, club_id : 100, title : XX동아리, description : 설명~~~, startDate : 2024-11-20 10:00, endDate : 2024-11-25 12:00, location :
+명지대 자연캠퍼스 5공학관 4층 Y5411
+    - postponeEvent_Successful : PASS
+      <br> newStartDate : startDate+days10, newEndDate : endDate+days12
+    - updateEventTitle_Successful : PASS
+      <br> newTitle : 새로운 제목
+    - updateEventDescription_Successful : PASS
+      <br> newDescription : 새로운 설명
+    - updateEventLocation_Successful : PASS
+      <br> newLocation : 새로운 위치
+    - extendEvent_Successful : PASS
+      <br> newEndDate : endDate+days10
+
+  5. id : 1, club_id : 400, title : OX동아리, description : 설명~~~, startDate : 2025-05-20 08:00, endDate : 2025-05-22 22:00, location :
+명지대 자연캠퍼스 5공학관 4층 Y5411
+    - postponeEvent_Successful : PASS
+      <br> newStartDate : startDate+days10, newEndDate : endDate+days10
+    - updateEventTitle_Successful : PASS
+      <br> newTitle : 새로운 제목
+    - updateEventDescription_Successful : PASS
+      <br> newDescription : 새로운 설명
+    - updateEventLocation_Successful : PASS
+      <br> newLocation : 새로운 위치
+    - extendEvent_Successful : PASS
+      <br> newEndDate : endDate+days2
 
 ClubService
 - Method
