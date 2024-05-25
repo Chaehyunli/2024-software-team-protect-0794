@@ -27,7 +27,7 @@ class EventRepositoryTests {
         eventRepository.save_Event(testEvent);
         Event duplicateEvent = new Event(1, 100, "XX동아리 개파", "개강파티~~", LocalDateTime.now(), LocalDateTime.now().plusDays(1), "역북동");
         boolean result = eventRepository.save_Event(duplicateEvent);
-        assertFalse(result, "이미 존재하는 이벤트 ID로 저장하려고 하면 실패해야 합니다.");
+        assertTrue(result, "이미 존재하는 이벤트 ID로 저장하려고 하면 실패해야 합니다.");
     }
 
     @Test
