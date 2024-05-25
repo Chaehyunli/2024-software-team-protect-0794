@@ -178,3 +178,42 @@ ClubService
   - addAnnouncementToClub
   - removeAnnouncementFromClub
 - testcase
+  1. clubId : 100, member, (event => id : 1, club_id : clubId, title : null, description : null, startDate : null, endDate : null, location : null), (announcement => id : 1, club_id : clubId, title : null, content : null, create_at : null, update_at : null, stateStack : null)
+    - addMemberToClub : PASS
+    - removeMemberFromClub : PASS
+    - addEventToClub : PASS
+    - removeEventFromClub : PASS
+    - addAnnouncementToClub : PASS
+    - removeAnnouncementFromClub : PASS
+
+  2. clubId : 200, member, (event => id : 2, club_id : clubId, title : null, description : null, startDate : null, endDate : null, location : null), (announcement => id : 3, club_id : clubId, title : null, content : null, create_at : null, update_at : null, stateStack : null)
+    - addMemberToClub : PASS
+    - removeMemberFromClub : PASS
+    - addEventToClub : PASS
+    - removeEventFromClub : PASS
+    - addAnnouncementToClub : PASS
+    - removeAnnouncementFromClub : PASS
+ 
+  3. clubId : 300, member, (event => id : 5, club_id : clubId, title : null, description : null, startDate : null, endDate : null, location : null), (announcement => id : 1, club_id : clubId, title : null, content : null, create_at : null, update_at : null, stateStack : null)
+    - addMemberToClub : PASS
+    - removeMemberFromClub : PASS
+    - addEventToClub : PASS
+    - removeEventFromClub : PASS
+    - addAnnouncementToClub : PASS
+    - removeAnnouncementFromClub : PASS
+ 
+  4. clubId : 200, member, (event => id : 2, club_id : clubId, title : null, description : null, startDate : null, endDate : null, location : null), (announcement => id : 1, club_id : clubId, title : null, content : null, create_at : null, update_at : null, stateStack : null)
+    - addMemberToClub : PASS
+    - removeMemberFromClub : PASS
+    - addEventToClub : PASS
+    - removeEventFromClub : PASS
+    - addAnnouncementToClub : PASS
+    - removeAnnouncementFromClub : PASS
+ 
+  5. clubId : 500, member, (event => id : 5, club_id : clubId, title : null, description : null, startDate : null, endDate : null, location : null), (announcement => id : 3, club_id : clubId, title : null, content : null, create_at : null, update_at : null, stateStack : null)
+    - addMemberToClub : PASS
+    - removeMemberFromClub : PASS
+    - addEventToClub : PASS
+    - removeEventFromClub : PASS
+    - addAnnouncementToClub : PASS
+    - removeAnnouncementFromClub : PASS
