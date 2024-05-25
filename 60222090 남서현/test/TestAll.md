@@ -103,6 +103,9 @@ EventService
   - updateEventDescription
   - updateEventLocation
   - extendEvent
+- testcase
+  1. id : 1, club_id : 100, title : XX동아리, description : 설명~~~, start_date : now, end_date : now+days2, location :
+명지대 자연캠퍼스 5공학관 4층 Y5411
 
 ClubService
 - Method
@@ -112,3 +115,4 @@ ClubService
   - removeEventFromClub
   - addAnnouncementToClub
   - removeAnnouncementFromClub
+- testcase
