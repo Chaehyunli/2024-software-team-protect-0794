@@ -18,8 +18,8 @@ class EventServiceTests {
     private Event event;
     private int eventId = 1;
     private int clubId = 100;
-    private String title = "XX동아리 공지사항";
-    private String description = "공지~~~";
+    private String title = "XX동아리";
+    private String description = "설명~~~";
     private String location = "명지대 자연캠퍼스 5공학관 4층 Y5411";
     private LocalDateTime startDate = LocalDateTime.of(2024, 5, 20, 10, 0);
     private LocalDateTime endDate = LocalDateTime.of(2024, 5, 22, 10, 0);
